@@ -1,3 +1,4 @@
+import AddToCartButton from "../../../components/AddToCartButton";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import products from "../../../data/products.json";
@@ -59,18 +60,12 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
             </p>
 
             {/* Add to Cart Actions */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              {/* Quantity Selector Placeholder */}
-              <div className="flex items-center border border-gray-300 w-32">
-                <button className="px-4 py-3 text-gray-600 hover:text-[var(--color-brand-yellow)] transition-colors">-</button>
-                <span className="flex-1 text-center font-bold text-gray-900">1</span>
-                <button className="px-4 py-3 text-gray-600 hover:text-[var(--color-brand-yellow)] transition-colors">+</button>
-              </div>
-              
-              <button className="flex-1 bg-[var(--color-brand-dark)] text-white font-bold tracking-widest uppercase py-4 hover:bg-[var(--color-brand-yellow)] hover:text-[var(--color-brand-dark)] transition-colors">
-                Add to Cart
-              </button>
-            </div>
+            <AddToCartButton product={{
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                imageUrl: product.imageUrl
+                }} />
 
             {/* Technical Specs List */}
             <div className="border-t border-gray-200 pt-8">
