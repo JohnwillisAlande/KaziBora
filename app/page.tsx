@@ -1,6 +1,9 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import CategoryGrid from "../components/CategoryGrid";
+import NewArrivals from "../components/NewArrivals";
+import Story from "../components/Story";
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (
@@ -8,8 +11,9 @@ export default function Home() {
       <Navbar />
       <Hero />
       <CategoryGrid />
-      
-      {/* The New Arrivals grid will go here next! */}
+      <NewArrivals />
+      <Story />
+      <Footer />
     </main>
   );
 }
