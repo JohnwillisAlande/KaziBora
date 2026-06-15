@@ -15,6 +15,7 @@ type CartItem = Product & { quantity: number };
 interface CartContextType {
   cart: CartItem[];
   addToCart: (product: Product, quantity: number) => void;
+  removeFromCart: (id: string) => void; // <-- Add this line
   cartCount: number;
 }
 
@@ -47,11 +48,15 @@ export function CartProvider({ children }: { children: ReactNode }) {
     alert(`${quantity}x ${product.name} added to cart!`);
   };
 
+  const removeFromCart = (id: string) => {
+  setCart((prevCart) => prevCart.filter((item) => item.id !== id));
+};
+
   // Calculate the total number of items in the cart
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, cartCount }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, cartCount }}>
       {children}
     </CartContext.Provider>
   );
