@@ -2,6 +2,7 @@ import Link from "next/link";
 import products from "../../data/products.json";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import FavoriteButton from "../../components/FavoriteButton";
 
 export default async function ShopPage({ searchParams }: { searchParams: Promise<{ category?: string }> }) {
   // 1. Read the URL to see if a specific category was requested
@@ -86,6 +87,9 @@ export default async function ShopPage({ searchParams }: { searchParams: Promise
                     alt={product.name}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 mix-blend-multiply"
                   />
+
+                  {/* Add the Heart Button Here! */}
+                    <FavoriteButton product={product} />
                   
                   {/* Quick Add Label */}
                   <div className="absolute bottom-0 left-0 w-full p-4 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
