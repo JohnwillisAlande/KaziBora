@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "../../utils/supabase/server";
+import GoogleSignInButton from "../../components/GoogleSignInButton";
 
 export default async function LoginPage({
   searchParams,
@@ -35,9 +36,6 @@ export default async function LoginPage({
     const password = formData.get("password") as string;
     const fullName = formData.get("fullName") as string;
 
-    console.log("=== ENV CHECK ===");
-    console.log("URL:", process.env.NEXT_PUBLIC_SUPABASE_URL);
-    console.log("KEY:", process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.substring(0, 10) + "...");
     const supabase = await createClient();
 
     const { error } = await supabase.auth.signUp({
@@ -73,6 +71,15 @@ export default async function LoginPage({
             {message}
           </div>
         )}
+
+        {/* The new isolated Client Component! */}
+        <GoogleSignInButton />
+
+        <div className="relative flex items-center py-4 mb-4">
+        <div className="flex-grow border-t border-gray-300"></div>
+        <span className="flex-shrink-0 mx-4 text-gray-400 text-xs tracking-widest uppercase">Or</span>
+        <div className="flex-grow border-t border-gray-300"></div>
+        </div>
 
         <form className="flex flex-col space-y-4">
           <div>

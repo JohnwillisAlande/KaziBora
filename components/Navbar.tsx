@@ -58,9 +58,13 @@ export default function Navbar() {
             {/* Conditional Auth UI */}
             {user ? (
               <div className="flex items-center space-x-4">
-                <span className="text-sm font-semibold text-[var(--color-brand-dark)] hidden sm:block">
+                {/* Changed from <span> to <Link> */}
+                <Link 
+                  href="/account"
+                  className="text-sm font-semibold text-[var(--color-brand-dark)] hover:text-[var(--color-brand-yellow)] transition-colors hidden sm:block"
+                >
                   Hi, {user.user_metadata.full_name?.split(' ')[0] || 'User'}
-                </span>
+                </Link>
                 <button 
                   onClick={handleSignOut}
                   className="text-xs font-bold tracking-widest uppercase text-gray-500 hover:text-[var(--color-brand-dark)] transition-colors"

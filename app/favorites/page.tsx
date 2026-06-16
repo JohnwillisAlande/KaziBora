@@ -20,7 +20,7 @@ export default function FavoritesPage() {
 
         {favorites.length === 0 ? (
           <div className="bg-white p-10 text-center shadow-sm border border-gray-100">
-            <p className="text-gray-500 mb-6">You haven't saved any items yet.</p>
+            <p className="text-gray-500 mb-6">You have not saved any items yet.</p>
             <Link 
               href="/shop" 
               className="inline-flex bg-[var(--color-brand-dark)] text-white font-bold tracking-widest uppercase px-8 py-4 hover:bg-[var(--color-brand-yellow)] hover:text-[var(--color-brand-dark)] transition-colors shadow-sm"
