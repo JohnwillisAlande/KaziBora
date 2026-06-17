@@ -92,10 +92,12 @@ export default async function LoginPage({
           </div>
 
           <div>
-            <label className="text-sm font-bold text-gray-600 uppercase tracking-wider block mb-1">Email *</label>
+            <label htmlFor="email" className="text-sm font-bold text-gray-600 uppercase tracking-wider block mb-1">Email *</label>
             <input
               type="email"
               name="email"
+              id="email"
+              autoComplete="username" // Signals to password managers that this is the login identity
               placeholder="you@example.com"
               required
               className="w-full border border-gray-300 px-4 py-3 focus:outline-none focus:border-[var(--color-brand-yellow)]"
@@ -103,10 +105,12 @@ export default async function LoginPage({
           </div>
 
           <div>
-            <label className="text-sm font-bold text-gray-600 uppercase tracking-wider block mb-1">Password *</label>
+            <label htmlFor="password" className="text-sm font-bold text-gray-600 uppercase tracking-wider block mb-1">Password *</label>
             <input
               type="password"
               name="password"
+              id="password"
+              autoComplete="current-password" // Triggers the "Save Password" prompt on submit
               placeholder="••••••••"
               required
               className="w-full border border-gray-300 px-4 py-3 focus:outline-none focus:border-[var(--color-brand-yellow)]"

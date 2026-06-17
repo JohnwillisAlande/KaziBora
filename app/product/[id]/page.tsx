@@ -4,6 +4,7 @@ import Link from "next/link";
 import products from "../../../data/products.json";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
+import ProductGallery from "../../../components/ProductGallery";
 
 export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
   // 1. Get the product ID from the URL
@@ -35,13 +36,12 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
           
           {/* Left Column: Product Image */}
-          <div className="bg-gray-100 aspect-square relative overflow-hidden">
-            <img 
-              src={product.imageUrl} 
-              alt={product.name} 
-              className="absolute inset-0 w-full h-full object-cover mix-blend-multiply"
+          <div className="bg-gray-100 h-96 md:h-[600px] relative">
+            <ProductGallery 
+                images={product.images || [product.imageUrl]} 
+                altText={product.name} 
             />
-          </div>
+            </div>
 
           {/* Right Column: Product Details */}
           <div className="flex flex-col pt-4">
