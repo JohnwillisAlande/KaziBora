@@ -1,0 +1,14 @@
+[
+  {
+    "county": "Nairobi",
+    "constituencies": ["Westlands", "Dagoretti North", "Dagoretti South", "Lang'ata", "Kibra", "Roysambu", "Kasarani", "Ruaraka", "Embakasi South", "Embakasi North", "Embakasi Central", "Embakasi East", "Embakasi West", "Makadara", "Kamukunji", "Starehe", "Mathare"]
+  },
+  {
+    "county": "Mombasa",
+    "constituencies": ["Changamwe", "Jomvu", "Kisauni", "Nyali", "Likoni", "Mvita"]
+  },
+  {
+    "county": "Kiambu",
+    "constituencies": ["Gatundu South", "Gatundu North", "Juja", "Thika Town", "Ruiru", "Githunguri", "Kiambu", "Kiambaa", "Kabete", "Kikuyu", "Limuru", "Lari"]
+  }
+]
