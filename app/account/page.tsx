@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "../../utils/supabase/server";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import AddressManager from "../../components/AddressManager";
 
 export default async function AccountPage({ 
   searchParams 
@@ -21,6 +22,12 @@ export default async function AccountPage({
     .select("full_name")
     .eq("id", user.id)
     .single();
+
+    const { data: addresses } = await supabase
+    .from("addresses")
+    .select("*")
+    .eq("user_id", user.id)
+    .order("created_at", { ascending: false });
 
   // --- SERVER ACTIONS ---
 
@@ -117,6 +124,9 @@ export default async function AccountPage({
             </form>
             <p className="mt-4 text-sm text-gray-500">Email: {user.email}</p>
           </div>
+
+          {/* --- NEW ADDRESS BOOK SECTION --- */}
+          <AddressManager initialAddresses={addresses || []} />
 
           {/* Security Section (Magic Link Flow) */}
           <div className="bg-white p-8 shadow-sm border border-gray-100">
